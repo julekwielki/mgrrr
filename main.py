@@ -364,6 +364,7 @@ def dalej():  # wywłuje symulację
     global zdrowa, uszkodzona, zmutowana, nowotworowa, wspolne, adapt, sasiedztwo, wczytywanie, dawka, organizm
     global fun_z, fun_u, fun_m, fun_n, parametry, s, par, zapis, org, zd, uszk, zm, nw, ws, wykr, tekst
 
+    #pobranie wartości wszystkich parametrów i sprawdzenie które funkcje mają być używane
     try:  # sprawdzenie poprawności podanych parametrów
         parametry[0] = float(pocz_wart.get())
         parametry[1] = int(wszystkie_wart.get())
@@ -383,10 +384,11 @@ def dalej():  # wywłuje symulację
             parametry[3] = 1 / 24
 
         fun_z[5] = 0
-        fun_d[7] = 0  # NIE UŻYWAĆ EFEKTU SĄSIEDZTWA - BŁĘDNA I KOSZMARNA IMPLEMENTACJA
+        fun_u[7] = 0  # NIE UŻYWAĆ EFEKTU SĄSIEDZTWA - BŁĘDNA I KOSZMARNA IMPLEMENTACJA
 
         parametry[4] += 1
         if parametry[1] * parametry[1] * parametry[1] * parametry[2] < 120000000:
+            # bo mi lapek wywala brak pamięci
             if wczytywanie == 0:
                 sym = Symulacja(zdrowa, uszkodzona, zmutowana, nowotworowa, wspolne, adapt,
                                 sasiedztwo, fun_z, fun_u, fun_m, fun_n, parametry, dawka)
@@ -401,7 +403,7 @@ def dalej():  # wywłuje symulację
             wyswietl_wykres()
 
         else:
-            # bo mi lapek wywala brak pamięci
+
             messagebox.showinfo("uwaga", "liczba kroków x (liczba komórek + 2)^3 nie może wynosić więcej niż 1,2*10^8")
             kroki.delete(0, END)
             kroki.insert(0, 13000)
