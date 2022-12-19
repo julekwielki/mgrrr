@@ -1,0 +1,11 @@
+klasycznie odpala się przez main
+parametry w oknie głównym:
+- liczba komórek - to bok 3D tablicy w której są umieszczone komórki - maksymalny rozmiar symulacji
+- początkowa liczba komórek - w tym momencie to jest promień kuli w której umieszczane są komórki, której środek
+	umieszczany jest w środku symulacji
+- promień - jak daleko przy podziale komórki może pojawiać się nowa komórka od komóki dzielącej się
+- liczba kroków - długość symulacji
+- dawka - można tu podać stałą wartość dla wszystkich kroków czasowych albo wczytać odpowiednio sformatowany plik .txt albo exel 
+
+zapisz wyniki - zapisuje plik .txt liczba komórek w poszczególnych stanach w kolejnych krokach czasowych 
+
